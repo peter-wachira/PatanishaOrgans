@@ -1,0 +1,85 @@
+ <div class="view" style="background-image: url('/images/aerial.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+ <!--Navbar-->
+          <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+            <div class="container">
+              <a class="navbar-brand" href="#"><strong><i class="fas fa-heartbeat"></i></strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/recipientsinfo">Recipients</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/donorsinfo">Donor</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/FAQs">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="https://github.com/peter-wachira/PatanishaOrgans"  onclick="btnClick()" class="nav-link border border-light rounded" target="_blank">
+                      <i class="fab fa-github mr-2"></i>GitHub
+                     </a>
+                   </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- Navbar -->
+          <!-- Full Page Intro -->
+            <!-- Mask & flexbox options-->
+            <div class="mask rgba-black-light align-items-center">
+              <!-- Content -->
+              <div class="container">
+                <!--Grid row-->
+                <div class="indexRow">
+                  <!--Grid column-->
+                  <div class="col-md-12 mb-4 white-text text-center">
+                    <h1 class="h1-reponsive text-warning text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 animate shake"><strong> Recipients </strong></h1>
+
+                      <form action="/donors" method="post">
+                              <label for="name">Enter Name:</label>
+                              <input id="name" name="name" type="text" class="form-control transparent " placeholder="Name"> <br>
+                              <select id="bloodgroup" name="bloodgroup" class="form-control mdb-select md-form" placeholder="Blood Group" >
+                                  <option value="A+">A+</option>
+                                  <option value="A-">A-</option>
+                                  <option value="B+">B+</option>
+                                  <option value="B-">B-</option>
+                                  <option value="AB">AB</option>
+                                  <option value="O+">O+</option>
+                                  <option value="0-">0-</option>
+                              </select>
+                              <select id="organ" name="organ" class="form-control mdb-select md-form" placeholder="Organ" >
+                                  <option value="Liver">Liver</option>
+                                  <option value="Kidney">Kidney</option>
+                                  <option value="Pancreas">Pancreas</option>
+                                  <option value="Heart">Heart</option>
+                                  <option value="Lung">Lung</option>
+                                  <option value="Intestine">Intestine</option>
+                                  <option value="Bone">Bone</option>
+                                  <option value="Bone Marrow">Bone Marrow</option>
+                                  <option value="Connective Tissue">Connective Tissue</option>
+                              </select>
+                              <select id="doctor" name="doctor" class="form-control  mdb-select md-form" placeholder="Choose Doctor:" >
+                                  #foreach ($doctor in $doctors)
+                                  <option value="$doctor.getId()">$doctor.getName()</option>
+                                  #end
+                              </select>
+                          </form>
+
+                  </div>
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </div>
+              <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+          </div>
+          <!-- Full Page Intro -->
+        </header>
+        <!-- Main navigation -->
