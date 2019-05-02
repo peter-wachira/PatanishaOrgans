@@ -52,6 +52,7 @@ public class App {
         get("/donors/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/donorForm.vtl");
+            model.put("doctors", Doctor.all() );
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
@@ -59,6 +60,7 @@ public class App {
         get("/recipients/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/recipientForm.vtl");
+            model.put("doctors", Doctor.all() );
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
@@ -68,8 +70,6 @@ public class App {
             String bloodgroup = request.queryParams("bloodgroup");
             String name = request.queryParams("name");
             String organ = request.queryParams("organ");
-            String doctor = request.queryParams("doctor");
-
             int doctorid = Integer.parseInt(request.queryParams("doctor"));
 
             Recepient recepient = new Recepient(name, bloodgroup, organ, doctorid);
@@ -82,20 +82,32 @@ public class App {
 
         get("/recipients", (request, response) -> {
             Map<String, Object>model = new HashMap<>();
-            model.put("recepient", recepient.all() );
+            model.put("recepients", Recepient.allRecepient() );
             model.put("template", "templates/recipients.vtl");
-
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
+        post("/donors", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String bloodgroup = request.queryParams("bloodgroup");
+            String name = request.queryParams("name");
+            String organ = request.queryParams("organ");
+            int doctorid = Integer.parseInt(request.queryParams("doctor"));
 
+            Donor donor = new Donor (name, bloodgroup, organ, doctorid);
+            donor.save();
 
+            model.put("donor", donor );
+            response.redirect("/donors");
+            return null;
+        });
 
-
-
-
-
-
+        get("/donors", (request, response) -> {
+            Map<String, Object>model = new HashMap<>();
+            model.put("donors", Donor.all() );
+            model.put("template", "templates/donors.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
 
 
 

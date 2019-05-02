@@ -1,0 +1,9 @@
+ #foreach($donor in $donors)
+                    <tr>
+                        <th>$donor.getId()</th>
+                        <td>$donor.getName()</td>
+                        <td>$donor.getBloodGroup()</td>
+                        <td>$donor.getOrgan()</td>
+                        <td>$donor.getDoctorId()</td>
+                    </tr>
+                    #end
