@@ -64,4 +64,20 @@ public class RecepientTest {
         secondRecepient.save();
         assertEquals(Recepient.find(secondRecepient.getId()), secondRecepient);
     }
+    @Test
+    public void delete_deletesRecepient() {
+        Recepient firstRecepient = new Recepient("Jackie", "O+", "Heart", 1);
+        firstRecepient.save();
+        firstRecepient.delete();
+        assertEquals(0, Recepient.allRecepient().size());
+    }
+    @Test
+    public void update_updatesRecepient_true() {
+        Recepient firstRecepient = new Recepient("Jackie", "O+", "Heart", 1);
+        firstRecepient.save();
+        firstRecepient.update("Gatwiri", "A+", "Kidney", 2);
+        assertEquals("Gatwiri", firstRecepient.find(firstRecepient.getId()).getName());
+    }
 }
+
+

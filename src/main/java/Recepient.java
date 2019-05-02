@@ -73,4 +73,40 @@ public class Recepient {
             return recepient;
         }
     }
+
+    public void update(String name, String bloodgroup, String organ, int doctorid)
+    {
+        this.name = name;
+        this.bloodgroup = bloodgroup;
+        this.organ = organ;
+        this.doctorid = doctorid;
+
+        String sql = "UPDATE recepients SET name = :name, bloodgroup = :bloodgroup, organ = :organ, doctorid = :doctorid WHERE id = :id";
+
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("bloodgroup", this.bloodgroup)
+                    .addParameter("organ", this.organ)
+                    .addParameter("doctorid", this.doctorid)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE from recepients WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
 }
+
+
+
+
