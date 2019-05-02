@@ -74,5 +74,19 @@ public class DoctorTest {
         secondDoctor.save();
         assertEquals(Doctor.find(secondDoctor.getId()), secondDoctor);
     }
+    @Test
+    public void delete_deletesDonor() {
+        Doctor testDoctor = new Doctor("Tosh", "A+","1234");
+        testDoctor.save();
+        testDoctor.delete();
+        assertEquals(0, Doctor.all().size());
+    }
+    @Test
+    public void update_updatesStylist_true() {
+        Doctor myDoctor = new Doctor("Yasmin", "A+","1234");
+        myDoctor.save();
+        myDoctor.update("Tosh", "A+", "1234");
+        assertEquals("Tosh", Doctor.find(myDoctor.getId()).getName());
+    }
 
 }

@@ -104,6 +104,20 @@ public class Recepient {
                     .executeUpdate();
         }
     }
+    public Doctor getDoctor() {
+        int id_check = doctorid;
+        Doctor doctor;
+        if(id_check==0){
+            doctor = new Doctor("","","");
+        } else {
+            try(Connection con = DB.sql2o.open()) {
+                String sql = "SELECT * FROM doctorid where id =:id";
+                doctor = con.createQuery(sql)
+                        .addParameter("id", id)
+                        .executeAndFetchFirst(Doctor.class); }
+        }
+        return doctor;
+    }
 
 }
 

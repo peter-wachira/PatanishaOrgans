@@ -80,6 +80,55 @@ public class Donor {
         }
 
     }
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE from donor WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+            String sql2 = "DELETE from donor WHERE doctorid = :id";
+            con.createQuery(sql2)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
+    public Doctor getDoctor() {
+        int id_check = doctorId;
+        Doctor doctor;
+        if(id_check==0){
+            doctor = new Doctor("","","");
+        } else {
+            try(Connection con = DB.sql2o.open()) {
+                String sql = "SELECT * FROM doctorId where id =:id";
+                doctor = con.createQuery(sql)
+                        .addParameter("id", id)
+                        .executeAndFetchFirst(Doctor.class); }
+        }
+        return doctor;
+    }
+
+    //update the Sightings table && throwing an exception incase the id is not mapped
+    public void update(String name, String bloodGroup, String organ, int doctorId) {
+        this.name = name;
+        this.bloodGroup = bloodGroup;
+        this.organ = organ;
+        this.doctorId= doctorId;
+        String sql = "UPDATE donor SET name = :name, bloodgroup = :bloodgroup, organ= :organ, doctorid = :doctorid WHERE id = :id";
+        try(Connection con = DB.sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("bloodgroup", bloodGroup)
+                    .addParameter("organ", organ)
+                    .addParameter("doctorid", doctorId)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
 }
 
 

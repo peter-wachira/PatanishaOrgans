@@ -68,7 +68,34 @@ public class Doctor {
             return doctor;
         }
     }
+    public void delete() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "DELETE from doctor WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+    //update the Sightings table && throwing an exception incase the id is not mapped
+    public void update(String name, String hospital, String contact) {
 
+        this.name = name;
+        this.hospital = hospital;
+        this.contact = contact;
+
+        String sql = "UPDATE doctor SET name = :name, hospital = :hospital, contact= :contact WHERE id = :id";
+
+        try (Connection con = DB.sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("hospital", hospital)
+                    .addParameter("contact", contact)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
 
 
 

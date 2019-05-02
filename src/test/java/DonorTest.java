@@ -79,6 +79,22 @@ public class DonorTest {
         secondDonor.save();
         assertEquals(Donor.find(secondDonor.getId()), secondDonor);
     }
+    @Test
+    public void delete_deletesDonor() {
+        Donor testDonor = new Donor("Tosh", "A+","Kidney",1);
+        testDonor.save();
+        testDonor.delete();
+        assertEquals(0, Donor.all().size());
+    }
+    @Test
+    public void update_updatesStylist_true() {
+        Donor myDonor = new Donor("Yasmin", "A+","Kidney",1);
+        myDonor.save();
+        myDonor.update("Tosh", "A+", "Kidney", 1);
+        assertEquals("Tosh", Donor.find(myDonor.getId()).getName());
+    }
+
+
 
 
 
