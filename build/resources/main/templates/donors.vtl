@@ -17,6 +17,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/donorsinfo">Donor</a>
                     </li>
+                     <li class="nav-item">
+                                           <a class="nav-link" href="/resources">Resources</a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="/contacts">Contact Us</a>
+                                       </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/FAQs">FAQs</a>
                     </li>
@@ -39,17 +45,35 @@
             <div class="indexRow">
                 <!--Grid column-->
                 <div class="col-md-12 mb-4 white-text text-center">
-                    <h1 class="h1-reponsive text-warning text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 animate shake"><strong>Available Donors <i class="fas fa-crown animate rotateIn infinite"></i></strong></h1>
-
-                        #foreach($donor in $donors)
-                        <tr>
-                            <th>$donor.getId()</th>
-                            <td>$donor.getName()</td>
-                            <td>$donor.getBloodGroup()</td>
-                            <td>$donor.getOrgan()</td>
-                            <td>$donor.getDoctorId()</td>
-                        </tr>
-                        #end
+                    <h1 class="h1-reponsive text-warning text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 animate shake"><strong>Available Donors <i class="fas fa-heartbeat"></i></strong></h1>
+                        <div class="container left-content">
+                       <table class="table table-dark">
+                         <thead class="thead-dark">
+                         <tr>
+                           <th scope="col">Id</th>
+                           <th scope="col">Name</th>
+                           <th scope="col">Blood Group</th>
+                           <th scope="col">Organ</th>
+                           <th scope="col">Doctor's Id</th>
+                           <th scope="col">Update Details</th>
+                           <th scope="col">Delete Details</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         #foreach($donor in $donors)
+                         <tr>
+                           <th>$donor.getId()</th>
+                           <td>$donor.getName()</td>
+                           <td>$donor.getBloodGroup()</td>
+                           <td>$donor.getOrgan()</td>
+                           <td>$donor.getDoctorId()</td>
+                           <td><a href="/donors/$donor.getId()/edit" class="btn btn-warning"> edit</a></td>
+                           <td><a href="/donors/$donor.getId()/delete" class="btn btn-danger"> delete</a></td>
+                         </tr>
+                         #end
+                         </tbody>
+                       </table>
+                     </div>
                     <a class="btn btn-outline-white " href="/donors/new"> Add Donor  </a>
                     <a class="btn btn-outline-white "   href="/donors"> View Donors  </a>
                 </div>

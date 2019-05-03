@@ -80,6 +80,7 @@ public class App {
             return null;
         });
 
+
         get("/recipients", (request, response) -> {
             Map<String, Object>model = new HashMap<>();
             model.put("recepients", Recepient.allRecepient() );
@@ -108,9 +109,30 @@ public class App {
             model.put("template", "templates/donors.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+        get("/contacts", (request, response) -> {
+            Map<String, Object>model = new HashMap<>();
+            model.put("template", "templates/contacts.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+        get("/resources", (request, response) -> {
+            Map<String, Object>model = new HashMap<>();
+            model.put("template", "templates/resources.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
 
-
-
+        // DELETING OBJECTS
+        get("/donors/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Donor.find(Integer.parseInt(request.params(":id"))).delete();
+            response.redirect("/donors");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+        get("/recipients/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Recepient.find(Integer.parseInt(request.params(":id"))).delete();
+            response.redirect("/recipients");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
 
 
     }
