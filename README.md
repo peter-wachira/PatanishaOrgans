@@ -25,6 +25,7 @@
 - [SQL](#SQL)
 - [Tests](#Tests)
 - [Requirements](#Requirements)
+- [Known Bugs](#Requirements)
 - [Extras](#extras)
 
 
