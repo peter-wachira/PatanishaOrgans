@@ -61,7 +61,7 @@ Run these commands:
 
 ## Live Demo
 To view the page click on the link below
-* [https://whispering-bastion-65831.herokuapp.com/](*)
+ [https://whispering-bastion-65831.herokuapp.com/](*)
 
 
 ## Requirements
