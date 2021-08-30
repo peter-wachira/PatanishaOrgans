@@ -77,7 +77,7 @@ The applications allow users to do the following:
 - Quick note that The page loads a bit slow due to the hosting, kindly be a little patient everything works just fine.
 - There are currently no tests done for this project
 - As at the time this project was made, responsiveness was not a major concern 
-- The project is currently not being maintaines any more 
+- The project is currently not being maintained any more 
 - Thanks for understanding.
 
 
