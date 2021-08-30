@@ -22,6 +22,7 @@
 ## TOC
 
 - [Installation](#Installation)
+- [Live Demo](#Requirements)
 - [SQL](#SQL)
 - [Tests](#Tests)
 - [Requirements](#Requirements)
@@ -57,6 +58,10 @@ Run these commands:
 
 ```
 
+
+## Live Demo
+To view the page click on the link below
+* [https://whispering-bastion-65831.herokuapp.com/](*)
 
 
 ## Requirements
