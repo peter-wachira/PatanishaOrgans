@@ -6,7 +6,7 @@
 ## Description
 
 ```bash
- A web application that aims at speeding up the process of linking organ donors to organ recipients.
+ A web application built using java and java-spark framework that aims at speeding up the process of linking organ donors to organ recipients. 
 ```
 ## Technologies Used
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-electricity.svg)](https://forthebadge.com)
@@ -32,7 +32,15 @@ Run these commands
 ## User Requirements
 ```bash
 The applications allow users to do the following:
-
+1. Register users with their medical, Update and Delete a donor
+2. Donor Selects an organ they want to donate
+3. Donor Selects a doctor to oversee.
+4. Register, Update and Delete a receipient  
+5. Receipient can select the organ they want 
+5. Register, Update and Delete  a doctor
+6. Users can view frequently asked questions
+7. Users can view Additional resources and related links 
+8. Contacts page
 
 ```
 
