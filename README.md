@@ -1,8 +1,8 @@
 # PatanishaOrgans
 #### PatanishaOrgans, April 28th 2019
 #### By **Peter Wachira**
-![]()
-![]()
+![](screenshots/screenshot1.png)
+![](screenshots/screenshot2.png)
 ## Description
 
 ```bash
