@@ -6,7 +6,10 @@
 ## Description
 
 ```bash
- A web application built using java and java-spark framework that aims at speeding up the process of linking organ donors to organ recipients. 
+
+ A web application built using java and java-spark framework.
+ The inspiration behind the project is to speed up the process of linking organ donors to organ recipients. 
+ 
 ```
 
 
