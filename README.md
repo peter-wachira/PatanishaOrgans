@@ -36,13 +36,21 @@
 ## SQL
 ```bash
 1.Launch postgres
+
 2.Type in psql
-Run these commands
+
+Run these commands:
+
 3. CREATE DATABASE patanisha_organs;
+
 4. \c PatanishaOrgans;
+
 5.CREATE TABLE donor(id serial PRIMARY KEY, name varchar, bloodgroup varchar, organ varchar, doctorid int);
+
 6.CREATE TABLE recepients (id serial PRIMARY KEY, name varchar,  bloodgroup varchar, organ varchar, doctorid varchar);
+
 7.CREATE TABLE doctor(id serial PRIMARY KEY, name varchar, hospital varchar, contact varchar);
+
 ```
 
 
