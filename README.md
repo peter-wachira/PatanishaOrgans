@@ -25,10 +25,13 @@
 - [Extras](#extras)
 
 
-
 ## Installation
 * `git clone <https://github.com/peter-wachira/PatanishaOrgans.git>` this repository
 * `cd PatanishaOrgans`
+
+## Tests
+
+- To run test, run files under tests/java package for DatabaseRule, Doctor, Receipient Donor tests 
 
 ## SQL
 ```bash
@@ -42,9 +45,6 @@ Run these commands
 7.CREATE TABLE doctor(id serial PRIMARY KEY, name varchar, hospital varchar, contact varchar);
 ```
 
-## Tests
-
-- To run test, run files under tests/java package for DatabaseRule, Doctor, Receipient Donor tests 
 
 
 ## Requirements
